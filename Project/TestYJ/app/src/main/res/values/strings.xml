@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TestYJ</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="parseAppID">4lvRK5A0WqIBwe7PBnwiiYl65nvyYUD1xZRdrikw</string>
+    <string name="parseClientID">AQMoINy13PE2RoVbgZ4VCWQDxyYtlQkbVEMl3m3Q</string>
+</resources>
