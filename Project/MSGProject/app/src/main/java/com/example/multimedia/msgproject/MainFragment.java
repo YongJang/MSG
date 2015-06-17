@@ -1,5 +1,6 @@
 package com.example.multimedia.msgproject;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
@@ -28,17 +30,23 @@ import com.parse.ParseInstallation;
  */
 public class MainFragment extends Fragment {
 
-    private TextView mTextDetails;
-    private CallbackManager mCallbackManager;
-    private AccessTokenTracker mTokenTracker;
-    private ProfileTracker mProfileTracker;
+    public TextView mTextDetails;
+    public CallbackManager mCallbackManager;
+    public AccessTokenTracker mTokenTracker;
+    public ProfileTracker mProfileTracker;
 
-    private FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+    }
+
+    public FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
         @Override
         public void onSuccess(LoginResult loginResult) {
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
             displayWelcomeMessage(profile);
+
         }
 
         @Override
@@ -78,10 +86,10 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main, container, false);
+            return inflater.inflate(R.layout.fragment_main, container, false);
     }
 
-    private void displayWelcomeMessage(Profile profile) {
+    public void displayWelcomeMessage(Profile profile) {
         if (profile != null) {
             mTextDetails.setText("Wellcome!! " + profile.getName());
         }
@@ -99,6 +107,11 @@ public class MainFragment extends Fragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         Profile profile = Profile.getCurrentProfile();
@@ -111,6 +124,37 @@ public class MainFragment extends Fragment {
         mTokenTracker.stopTracking();
         mProfileTracker.startTracking();
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

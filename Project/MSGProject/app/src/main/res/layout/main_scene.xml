@@ -6,22 +6,30 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#ff87cbff"
     tools:context=".MainActivityFragment">
 
     <TextView
         android:id="@+id/text_details"
-        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_alignLeft="@+id/login_button"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/login_button"
-        android:gravity="center" />
+        android:layout_width="wrap_content" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:layout_marginBottom="30dp"
         android:layout_marginTop="30dp" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:text="돌아가기"/>
 
 </RelativeLayout>

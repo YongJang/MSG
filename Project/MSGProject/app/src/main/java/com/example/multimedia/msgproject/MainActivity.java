@@ -1,5 +1,7 @@
 package com.example.multimedia.msgproject;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +33,13 @@ public class MainActivity extends ActionBarActivity {
                 }
             }
         });
+
+        MainScene mainScene = new MainScene();
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.main_layout,mainScene,"YJFragment");
+        transaction.commit();
+
     }
 
 
