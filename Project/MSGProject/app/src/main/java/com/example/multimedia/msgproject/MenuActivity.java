@@ -6,18 +6,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.facebook.Profile;
+
 import org.w3c.dom.Text;
 
 
 public class MenuActivity extends ActionBarActivity {
 
     TextView textView;
+    TextView textView2;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        Profile facebookUserProf = FacebookUserProf.getProfile();
+        textView = (TextView) findViewById(R.id.user_name);
+        textView2 = (TextView) findViewById(R.id.wellcome_message);
+        textView.setText(facebookUserProf.getName());
+
     }
 
     @Override

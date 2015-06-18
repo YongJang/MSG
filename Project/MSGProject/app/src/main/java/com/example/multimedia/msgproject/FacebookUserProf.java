@@ -7,7 +7,7 @@ import com.facebook.Profile;
  */
 public class FacebookUserProf implements Communicator{
     String name;
-    Profile pf;
+    static Profile pf;
     public FacebookUserProf(){}
     public FacebookUserProf(Profile profile){
         pf=profile;
@@ -16,5 +16,9 @@ public class FacebookUserProf implements Communicator{
     @Override
     public void logIn(Profile profile) {
 
+    }
+
+    public static Profile getProfile(){
+        return pf;
     }
 }
