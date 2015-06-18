@@ -4,14 +4,23 @@
     android:layout_height="match_parent"
     android:id="@+id/main_layout"
     >
+
     <fragment
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:name="com.example.multimedia.msgproject.MainFragment"
-        android:id="@+id/fragment"
+        android:id="@+id/login_fragment"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        ></fragment>
+        />
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="com.example.multimedia.msgproject.MainScene"
+        android:id="@+id/main_scene_fragment"
+        android:layout_below="@+id/login_fragment"
+        android:layout_alignParentLeft="true"/>
 
 </RelativeLayout>
 

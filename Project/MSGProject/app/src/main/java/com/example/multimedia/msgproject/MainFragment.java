@@ -2,7 +2,9 @@ package com.example.multimedia.msgproject;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
+
+import android.support.v4.app.*;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,6 +37,8 @@ public class MainFragment extends Fragment {
     public AccessTokenTracker mTokenTracker;
     public ProfileTracker mProfileTracker;
 
+    Communicator comm;
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -46,7 +50,7 @@ public class MainFragment extends Fragment {
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
             displayWelcomeMessage(profile);
-
+            comm.respond(profile,R.id.main_scene_fragment);
         }
 
         @Override
@@ -153,6 +157,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        comm = (Communicator) getActivity();
     }
 
 

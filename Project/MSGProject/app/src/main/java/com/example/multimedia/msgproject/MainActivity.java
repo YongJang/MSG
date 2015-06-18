@@ -1,13 +1,18 @@
 package com.example.multimedia.msgproject;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+//import android.app.FragmentManager;
+//import android.app.FragmentTransaction;
+import android.app.Activity;
+import android.support.v4.app.*;
+
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
+import com.facebook.Profile;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
@@ -15,7 +20,7 @@ import com.parse.ParsePush;
 import com.parse.SaveCallback;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements Communicator{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +40,12 @@ public class MainActivity extends ActionBarActivity {
         });
 
         MainScene mainScene = new MainScene();
-        FragmentManager manager = getFragmentManager();
+        FragmentManager manager = getSupportFragmentManager();
+
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.main_layout,mainScene,"YJFragment");
+        transaction.add(R.id.main_layout,new MainFragment(),"YJFragment");
         transaction.commit();
+
 
     }
 
@@ -63,5 +70,17 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void respond(Profile profile,int n) {
+        FragmentManager manager= getSupportFragmentManager();
+        /*
+        MainFragment mainFragment = (MainFragment) manager.findFragmentById(R.id.main_scene_fragment);
+        MainScene mainScene= (MainScene) manager.findFragmentById(n);
+        mainScene.changeText(profile.getName());
+        FragmentTransaction transaction = manager.beginTransaction();
+        */
+
     }
 }

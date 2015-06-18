@@ -9,23 +9,14 @@
     tools:context=".MainActivityFragment">
 
     <TextView
-        android:id="@+id/text_details"
+        android:id="@+id/wellcome_message"
         android:gravity="center"
-        android:layout_alignLeft="@+id/login_button"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
-
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/login_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="30dp" />
+        android:text="환영합니다."/>
 
     <Button
+        android:onClick="back_to_login"
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
