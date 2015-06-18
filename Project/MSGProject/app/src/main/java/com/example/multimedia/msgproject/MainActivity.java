@@ -3,6 +3,7 @@ package com.example.multimedia.msgproject;
 //import android.app.FragmentManager;
 //import android.app.FragmentTransaction;
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.app.*;
 
 import android.support.v7.app.ActionBarActivity;
@@ -22,6 +23,8 @@ import com.parse.SaveCallback;
 
 public class MainActivity extends ActionBarActivity implements Communicator{
 
+    public static final int REQUEST_CODE_MENU_ACTIVITY = 1001;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,12 +42,12 @@ public class MainActivity extends ActionBarActivity implements Communicator{
             }
         });
 
-        MainScene mainScene = new MainScene();
-        FragmentManager manager = getSupportFragmentManager();
+       // MainScene mainScene = new MainScene();
+        //FragmentManager manager = getSupportFragmentManager();
 
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.main_layout,new MainFragment(),"YJFragment");
-        transaction.commit();
+        //FragmentTransaction transaction = manager.beginTransaction();
+        //transaction.add(R.id.main_layout,new MainFragment(),"YJFragment");
+        //transaction.commit();
 
 
     }
@@ -73,13 +76,21 @@ public class MainActivity extends ActionBarActivity implements Communicator{
     }
 
     @Override
-    public void respond(Profile profile,int n) {
-        FragmentManager manager= getSupportFragmentManager();
+    public void logIn(Profile profile) {
+
+        Intent i = new Intent(this,MenuActivity.class);
+        startActivity(i);
+        FacebookUserProf fu=new FacebookUserProf(profile);
+
+        //FragmentManager manager= getSupportFragmentManager();
+
         /*
-        MainFragment mainFragment = (MainFragment) manager.findFragmentById(R.id.main_scene_fragment);
+        //MainFragment mainFragment = (MainFragment) manager.findFragmentById(R.id.main_scene_fragment);
         MainScene mainScene= (MainScene) manager.findFragmentById(n);
         mainScene.changeText(profile.getName());
         FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.main_scene,new MainScene(),"YJFragment");
+        transaction.commit();
         */
 
     }

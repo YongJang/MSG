@@ -50,7 +50,10 @@ public class MainFragment extends Fragment {
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
             displayWelcomeMessage(profile);
-            comm.respond(profile,R.id.main_scene_fragment);
+            comm.logIn(profile);
+            //onDestroy();
+            //onDetach();
+
         }
 
         @Override
